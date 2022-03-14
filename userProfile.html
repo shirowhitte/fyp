@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Reserve a Seat</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center fixed-top topbar-RED">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-center h5" style="margin:auto;" >
+        Welcome Back! Dear #username
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <div class="logo me-auto">
+        <h1><a href="index.html">Restaurant Name</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="userProfile.html">My Profile</a></li>
+          <li><a class="nav-link scrollto" href="viewReservation.html">My Reservation</a></li>
+          <li><a class="nav-link scrollto" href="">My Order</a></li>
+          <li><a class="nav-link scrollto" href="#gallery">My Cart</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel">
+
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" >
+            <div class="carousel-container" style="background-color: white;">
+                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
+                    <form>
+                        <h3>reservation</h3>
+                        <br>
+                        <div class="form-group">
+                            <label for="bookingDate">booking date</label>
+                            <i class="bi bi-calendar-date"><input type="date" class="form-control" id="bookingDate" name="bookingDate"></i>
+                        </div>
+                        <div class="form-group">
+                          <label for="capacity">capacity</label> <i class="bi bi-person"></i>
+                          <select class="form-control" id="capacity">
+                            <option>1-4</option>
+                            <option>4-8</option>
+                            <option>>8</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="time">select time</label>
+                          <i class="bi bi-alarm"></i>
+                          <select class="selectpicker form-control" id="time">
+                            <option>1100</option>
+                            <option>1130</option>
+                            <option>1200</option>
+                            <option>1230</option>
+                            <option>1300</option>
+                            <option>1330</option>
+                            <option>1400</option>
+                            <option>1430</option>
+                            <option>1500</option>
+                            <option>1530</option>
+                            <option>1600</option>
+                            <option>1630</option>
+                            <option>1700</option>
+                            <option>1730</option>
+                            <option>1800</option>
+                            <option>1830</option>
+                            <option>1900</option>
+                            <option>1930</option>
+                            <option>2000</option>
+                            <option>2030</option>
+                            <option>2100</option>
+                            <option>2130</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="note">extra note</label> <i class="bi bi-clipboard"></i>
+                          <textarea class="form-control" id="note" rows="3"></textarea>
+                        </div><br>
+                        <div class="form-group">
+                            <input class="btn btn-danger btn-lg btn-block" type="submit" onclick="message();">
+                          </div> 
+                      </form>
+                  </div>
+                  <br>
+            
+                
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h3>Restaurant Name</h3>
+      <p>Restaurant Slogan/mission.</p>
+      <div class="social-links">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      <div class="copyright">
+        &copy; Copyright <strong><span>Restaurant Name</span></strong>. All Rights Reserved
+      </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+      function message()
+      {
+          alert("Your booking has been confirmed.");
+      }
+  </script>
+
+</body>
+
+</html>
