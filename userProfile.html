@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Reserve a Seat</title>
+  <title>My Profile</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -42,15 +42,15 @@
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div class="logo me-auto">
-        <h1><a href="index.html">Restaurant Name</a></h1>
+        <h1><a href="userDashboard.html">Restaurant Name</a></h1>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="userProfile.html">My Profile</a></li>
+          <li><a class="nav-link scrollto active" href="userProfile.html">My Profile</a></li>
           <li><a class="nav-link scrollto" href="viewReservation.html">My Reservation</a></li>
-          <li><a class="nav-link scrollto" href="">My Order</a></li>
-          <li><a class="nav-link scrollto" href="#gallery">My Cart</a></li>
+          <li><a class="nav-link scrollto" href="viewOrder.html">My Order</a></li>
+          <li><a class="nav-link scrollto" href="viewCart.html">My Cart</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -62,71 +62,28 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
-    <div class="hero-container">
-      <div id="heroCarousel">
-
-
-        <div class="carousel-inner" role="listbox">
-
-          <!-- Slide 1 -->
-          <div class="carousel-item active" >
-            <div class="carousel-container" style="background-color: white;">
-                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
-                    <form>
-                        <h3>reservation</h3>
-                        <br>
-                        <div class="form-group">
-                            <label for="bookingDate">booking date</label>
-                            <i class="bi bi-calendar-date"><input type="date" class="form-control" id="bookingDate" name="bookingDate"></i>
-                        </div>
-                        <div class="form-group">
-                          <label for="capacity">capacity</label> <i class="bi bi-person"></i>
-                          <select class="form-control" id="capacity">
-                            <option>1-4</option>
-                            <option>4-8</option>
-                            <option>>8</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="time">select time</label>
-                          <i class="bi bi-alarm"></i>
-                          <select class="selectpicker form-control" id="time">
-                            <option>1100</option>
-                            <option>1130</option>
-                            <option>1200</option>
-                            <option>1230</option>
-                            <option>1300</option>
-                            <option>1330</option>
-                            <option>1400</option>
-                            <option>1430</option>
-                            <option>1500</option>
-                            <option>1530</option>
-                            <option>1600</option>
-                            <option>1630</option>
-                            <option>1700</option>
-                            <option>1730</option>
-                            <option>1800</option>
-                            <option>1830</option>
-                            <option>1900</option>
-                            <option>1930</option>
-                            <option>2000</option>
-                            <option>2030</option>
-                            <option>2100</option>
-                            <option>2130</option>
-                          </select>
-                        </div>
-                        <div class="form-group">
-                          <label for="note">extra note</label> <i class="bi bi-clipboard"></i>
-                          <textarea class="form-control" id="note" rows="3"></textarea>
-                        </div><br>
-                        <div class="form-group">
-                            <input class="btn btn-danger btn-lg btn-block" type="submit" onclick="message();">
-                          </div> 
-                      </form>
-                  </div>
-                  <br>
-            
-                
+    <div class="hero-container" >
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel"style="background-color:white;">
+        <div class="carousel-inner" role="listbox" >
+          <div class="carousel-item active">
+            <div class="carousel-container"style="background-color:white;">
+              <div class="carousel-content" style="padding-right:10rem;">
+                <div style="background-color:gray; height:500px; width:500px ;">
+                  <img src="assets/img/profile.jpg" style="height:500px">
+                </div>
+              </div> 
+              <div class="carousel-content" style="padding-right:8rem; ">
+                    <h2 style="color: black;">username</h2>
+                    <P style="color: black;">2005-03-09</P>
+                    email: username@gmail.com<br>
+                    contact: 9672 8394<br>
+                    password: ***************<br><br>
+                    <button type="button" class="btn btn-outline-danger lg btn-lg">Edit Profile</button><br><br>
+                    <button type="button" name="" id="" class="btn btn-danger btn-lg" btn-lg btn-block">Account Termination</button>
+              </div>
+                 
+                </div>
+              </div>
             </div>
           </div>
 
@@ -134,7 +91,6 @@
       </div>
     </div>
   </section><!-- End Hero -->
-
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
@@ -165,12 +121,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-      function message()
-      {
-          alert("Your booking has been confirmed.");
-      }
-  </script>
 
 </body>
 

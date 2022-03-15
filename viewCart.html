@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>My Reservation</title>
+  <title>My Cart</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -48,9 +48,9 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto" href="userProfile.html">My Profile</a></li>
-          <li><a class="nav-link scrollto active" href="viewReservation.html">My Reservation</a></li>
+          <li><a class="nav-link scrollto" href="viewReservation.html">My Reservation</a></li>
           <li><a class="nav-link scrollto" href="viewOrder.html">My Order</a></li>
-          <li><a class="nav-link scrollto" href="viewCart.html">My Cart</a></li>
+          <li><a class="nav-link scrollto active" href="viewCart.html">My Cart</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -59,70 +59,38 @@
 
     </div>
   </header><!-- End Header -->
-<div class="mt-5" style="padding-top: 80px;">
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active" >
-            <div class="carousel-container" style="background-color: white;">
-                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
-                        <h3>upcoming</h3><br>
-                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 1" readonly>
-                                <div class="input-group-append"> &NonBreakingSpace;
-                                <button class="btn btn-primary" type="button">make changes</button>
-                                <button class="btn btn-danger" type="button">delete reservation</button>
-                                </div>
-                            </div><br>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 2" readonly>
-                                <div class="input-group-append"> &NonBreakingSpace;
-                                <button class="btn btn-primary" type="button">make changes</button>
-                                <button class="btn btn-danger" type="button">delete reservation</button>
-                                </div>
-                            </div><br>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 2" readonly>
-                                <div class="input-group-append"> &NonBreakingSpace;
-                                <button class="btn btn-primary" type="button">make changes</button>
-                                <button class="btn btn-danger" type="button">delete reservation</button>
-                                </div>
-                            </div>
-                        </div>      
-                  </div>  
-                <br>    
-            </div>
-          </div>
-        </div>
 
-          
-        </div>
-
-
-
-
-        <div class="carousel-inner" role="listbox">
-          <div class="carousel-item active" >
-            <div class="carousel-container" style="background-color: white;">
-                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
-                        <h3>history</h3><br>
-                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 1" readonly>
-                            </div><br>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 2" readonly>
-                            </div><br>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 2" readonly>
-                            </div>
-                        </div>      
-                  </div>  
-                <br>    
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container" >
+      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel"style="background-color:white;">
+        <div class="carousel-inner" role="listbox" >
+          <div class="carousel-item active">
+            <div class="carousel-container"style="background-color:white;">
+              <div class="carousel-content" style="padding-right:10rem;">
+                <div style="background-color:gray; height:500px; width:500px ;">
+                  <img src="assets/img/profile.jpg" style="height:500px">
+                </div>
+              </div> 
+              <div class="carousel-content" style="padding-right:8rem; ">
+                    <h2 style="color: black;">username</h2>
+                    <P style="color: black;">2005-03-09</P>
+                    email: username@gmail.com<br>
+                    contact: 9672 8394<br>
+                    password: ***************<br><br>
+                    <button type="button" class="btn btn-outline-danger lg btn-lg">Edit Profile</button><br><br>
+                    <button type="button" name="" id="" class="btn btn-danger btn-lg" btn-lg btn-block">Account Termination</button>
+              </div>
+                 
+                </div>
+              </div>
             </div>
           </div>
 
-          
         </div>
-
-
+      </div>
+    </div>
+  </section><!-- End Hero -->
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
@@ -153,12 +121,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-      function message()
-      {
-          alert("Your booking has been confirmed.");
-      }
-  </script>
 
 </body>
 
