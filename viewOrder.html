@@ -23,6 +23,8 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+  integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -36,13 +38,12 @@
         Welcome Back! Dear #username
     </div>
   </section>
-
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <div class="logo me-auto">
-        <h1><a href="userDashboard.html">Restaurant Name</a></h1>
+        <h1><a href="userDashboard.html">Sushi Kingdom</a></h1>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -50,10 +51,36 @@
           <li><a class="nav-link scrollto" href="userProfile.html">My Profile</a></li>
           <li><a class="nav-link scrollto" href="viewReservation.html">My Reservation</a></li>
           <li><a class="nav-link scrollto active" href="viewOrder.html">My Order</a></li>
-          <li><a class="nav-link scrollto" href="viewCart.html">My Cart</a></li>
+          <li>   <!--Here is top one and in this part I put logo, my account part, and the shopping cart-->
+ <!--Shopping cart-->
+                    <div class="shopping-cart nav-link scrollto" style="color: white;">
+                        <div class="sum-prices">
+                            <!--Shopping cart logo-->
+                            <i class="fas fa-shopping-cart shoppingCartButton"></i>
+                            <!--The total prices of products in the shopping cart -->
+                            <h6 id="sum-prices"></h6>
+                            
+                        </div>
+                    </div>
+        </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+      <button id="menuButton" hidden></button>
+      <div class="producstOnCart hide" style="padding-top: 20px;">
+        <div class="overlay"></div>
+        <div class="top">
+            <button id="closeButton">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <h3 style="padding-left: 10px; background-color: black;">Cart</h3>
+        </div>
+        <ul id="buyItems">
+            <h4 class="empty">Your shopping cart is empty</h4>
+        </ul>
+        <a href="viewMenu.html" class="btn checkout hidden">Menu</a>
+        <button class="btn checkout hidden">Check out</button>
+    </div>
 
       <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
 
@@ -91,11 +118,11 @@
       </div>
     </div>
   </section><!-- End Hero -->
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
     <div class="container">
-      <h3>Restaurant Name</h3>
-      <p>Restaurant Slogan/mission.</p>
+      <h3>Sushi Kingdom</h3>
+      <p>Beyond The Boundaries of Taste.</p>
       <div class="social-links">
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -104,7 +131,7 @@
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
       <div class="copyright">
-        &copy; Copyright <strong><span>Restaurant Name</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Sushi Kingdom</span></strong>. All Rights Reserved
       </div>
       </div>
     </div>
@@ -118,6 +145,8 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/js/JS/script.js"></script>
+  <script src="assets/js/shopping-cart.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
