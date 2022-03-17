@@ -17,12 +17,177 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
+ 
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+  crossorigin="anonymous"
+/>
+<style>
+    .shopping-cart .sum-prices {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #sum-prices {
+        padding-left: 5px;
+    }
+    
+    .sum-prices h6 {
+        font-size: 1rem;
+    }
+    
+    .shoppingCartButton {
+        cursor: pointer;
+    }
+    
+    .shoppingCartButton:hover,
+    .account:hover * {
+        color: #0e5e53;
+    }
+    
+    .producstOnCart {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none;
+        overflow: hidden;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
+        background-color:#615c54;
+        width: 300px;
+        height: 500px;
+        color: #f0f0f0;
+        z-index: 15;
+        position: fixed;
+        top: 150px;
+        right: 0;
+        text-align: center;
+        animation: fade 0s;
+    }
+    
+    .producstOnCart::-webkit-scrollbar {
+        display: none;
+    }
+    
+    @keyframes fade {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: none;
+        }
+    }
+    
+    .producstOnCart::-webkit-scrollbar {
+        width: 0;
+        background: transparent;
+    }
+    
+    .hide {
+        display: none;
+        visibility: none;
+    }
+    
+    .producstOnCart ul {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .producstOnCart .buyItem {
+        border-bottom: #aaa 1px solid;
+        width: 90%;
+        padding: 10px 0;
+        display: flex;
+    }
+    
+    .producstOnCart img {
+        width: 90px;
+    }
+    
+    .producstOnCart .top {
+        display: flex;
+        text-align: center;
+        padding: 0;
+        position: sticky;
+        top: 0px;
+        width: 100%;
+    }
+    
+    .producstOnCart > .checkout {
+        font-size: 0.9rem;
+        margin: 20px auto;
+        border: none;
+        background-color: #297075;
+        padding: 10px 20px;
+        color: #eee;
+        cursor: pointer;
+    }
+    
+    .overlay {
+        overflow: hidden;
+        display: inline-block;
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        background: rgba(0, 0, 0, 0.5);
+    }
+    
+    .stopScrolling {
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .buyItem h6 {
+        margin-bottom: 10px;
+    }
+    
+    .buyItem button {
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        font-weight: 900;
+        font-size: 1.2rem;
+        padding: 0 6px;
+        border: none;
+    }
+    
+    .buyItem button:active {
+        color: #96c8cc;
+    }
+    
+    .buyItem > div {
+        padding: 0 20px;
+    }
+    
+    .producstOnCart .empty {
+        justify-self: center;
+        margin: 150px auto;
+    }
+    
+    .price {
+        color: #dd3333;
+        margin-top: 10px;
+        text-align: left;
+        padding: 5px;
+        font-size: 1rem;
+    }
+    </style>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -50,15 +215,44 @@
           <li><a class="nav-link scrollto" href="userProfile.html">My Profile</a></li>
           <li><a class="nav-link scrollto" href="viewReservation.html">My Reservation</a></li>
           <li><a class="nav-link scrollto" href="viewOrder.html">My Order</a></li>
-          <li><a class="nav-link scrollto" href="viewCart.html">My Cart</a></li>
+          <li>   <!--Here is top one and in this part I put logo, my account part, and the shopping cart-->
+ <!--Shopping cart-->
+                    <div class="shopping-cart nav-link scrollto" style="color: white;">
+                        <div class="sum-prices">
+                            <!--Shopping cart logo-->
+                            <i class="fas fa-shopping-cart shoppingCartButton"></i>
+                            <!--The total prices of products in the shopping cart -->
+                            <h6 id="sum-prices"></h6>
+                            
+                        </div>
+                    </div>
+        </li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+      <button id="menuButton" hidden></button>
 
       <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
 
     </div>
   </header><!-- End Header -->
+  <nav>
+    <!--Navbar has two part the top one and the bottom one-->
+    <!-- Navbar bottom part -->
+    <!-- Here I put the links to the other pages or nav links -->
+    <div class="producstOnCart hide" style="padding-top: 100px;">
+        <div class="overlay"></div>
+        <div class="top">
+            <button id="closeButton">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <h3>Cart</h3>
+        </div>
+        <ul id="buyItems">
+            <h4 class="empty">Your shopping cart is empty</h4>
+        </ul>
+        <button class="btn checkout hidden">Check out</button>
+    </div>
     <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu">
         <div class="container" style="padding-top: 100px;">
