@@ -28,6 +28,109 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>@import url(https://fonts.googleapis.com/css?family=Lato:300,400,900);
+    @import url(https://fonts.googleapis.com/css?family=Audiowide);
+    
+    .modal {
+      display:contents;
+      padding: 1em;
+    }
+    .modal > label {
+      background: #FFD300;
+      border: 1px solid #f0c600;
+      border-radius: .2em;
+      color: #000000;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: bold;
+      padding: 0.75em 1.5em;
+      text-shadow: 1px 1px 1px #fff;
+      transition: all 0.55s;
+    }
+    .modal > label:hover {
+      transform: scale(0.97);
+    }
+    .modal__overlay {
+      background: rgba(00,00,00,0.5);
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      right: 0;
+      text-align: center;
+      text-shadow: none;
+      top: 0;
+      z-index: 600;
+    }
+    @media (min-width: 50em) {
+      .modal__wrap {
+        padding: 1.75em;
+      }
+    }
+    @media (min-height: 37.5em) {
+      .modal__wrap {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -80%);
+      }
+    }
+    .modal__wrap label {
+      background: #FFD300;
+      border-radius: 50%;
+      color: #000000;
+      cursor: pointer;
+      display: inline-block;
+      height: 1.5em;
+      line-height: 1.5;
+      position: absolute;
+      right: .5em;
+      top: .5em;
+      width: 1.5em;
+    }
+    .modal__wrap h2 {
+      color: #FFD300;
+      margin-bottom: 1em;
+      text-transform: uppercase;
+    }
+    .modal__wrap p {
+      color: #FFD300;
+      text-align: justify;
+    }
+    .modal input:focus ~ label {
+      transform: scale(0.97);
+    }
+    
+  
+    
+    .modal__overlay {
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: -100;
+    }
+    
+    input:checked ~ .modal__overlay {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 800;
+    }
+    /* The Close Button */
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  </style>
 </head>
 
 <body>
@@ -68,20 +171,20 @@
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
       <button id="menuButton" hidden></button>
-      <div class="producstOnCart hide" style="padding-top: 20px;">
+      <div class="producstOnCart hide">
         <div class="overlay"></div>
         <div class="top">
             <button id="closeButton">
                 <i class="fas fa-times-circle"></i>
             </button>
-            <h3 style="padding-left: 10px; background-color: black;">Cart</h3>
+            <h3 style="background-color: black;">Cart</h3>
         </div>
         <ul id="buyItems">
             <h4 class="empty">Your shopping cart is empty</h4>
         </ul>
-        <a href="viewMenu.html" class="btn checkout hidden">Menu</a>
         <button class="btn checkout hidden">Check out</button>
     </div>
+
       <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
 
     </div>
@@ -105,7 +208,37 @@
                     email: username@gmail.com<br>
                     contact: 9672 8394<br>
                     password: ***************<br><br>
-                    <button type="button" class="btn btn-outline-danger lg btn-lg">Edit Profile</button><br><br>
+                    <!--Start of Modal -->
+                    <div class="modal">
+                      <input id="modal__trigger" type="checkbox" hidden/>
+                      <label for="modal__trigger">Edit</label>
+                      <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+                          <div class="modal__wrap" style="padding-top: 500px;" >
+                              <h3 style="color: white;">Edit Profile</h3><br>
+                              <a href="userProfile.html"><span class="close">&times;</span></a>
+                                        Username
+                                        <input class="form-control" type="text" value="username" id="username" readonly>
+                                        Birthdate
+                                        <input class="form-control" type="date" id="birthdate" readonly>
+
+                                        Email
+                                        <input class="form-control" type="text" value="username@gmail.com" id="email" readonly>
+                                       
+                                        Contact
+                                        <input class="form-control" type="text" value="9836 2839" id="contact">
+                                        Password
+                                        <input class="form-control" type="password" value="9836 2839" id="contact">
+
+                                        <br>
+
+                                      
+                                        <button type="button" onclick="message()" class="btn btn-primary" btn-lg btn-block">Update</button>
+                                      
+                          
+                          </div>
+                      </div>
+                    </div>
+                  <!--End of Modal --> 
                     <button type="button" name="" id="" class="btn btn-danger btn-lg" btn-lg btn-block">Account Termination</button>
               </div>
                  
@@ -118,6 +251,7 @@
       </div>
     </div>
   </section><!-- End Hero -->
+  
  <!-- ======= Footer ======= -->
  <footer id="footer">
   <div class="container">

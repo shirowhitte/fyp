@@ -1376,6 +1376,7 @@ section {
   right: 0;
   text-align: center;
   animation: fade 0s;
+  padding-top: 20px;height: 100%;
 }
 
 .producstOnCart::-webkit-scrollbar {
@@ -1447,7 +1448,7 @@ section {
   left: 0;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   z-index: -1;
   background: rgba(0, 0, 0, 0.5);
 }
@@ -1536,3 +1537,106 @@ section {
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,900);
+  @import url(https://fonts.googleapis.com/css?family=Audiowide);
+  
+  .modal {
+    display:contents;
+    padding: 1em;
+  }
+  .modal > label {
+    background: #FFD300;
+    border: 1px solid #f0c600;
+    border-radius: .2em;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.75em 1.5em;
+    text-shadow: 1px 1px 1px #fff;
+    transition: all 0.55s;
+  }
+  .modal > label:hover {
+    transform: scale(0.97);
+  }
+  .modal__overlay {
+    background: rgba(00,00,00,0.5);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    text-shadow: none;
+    top: 0;
+    z-index: 600;
+  }
+  @media (min-width: 50em) {
+    .modal__wrap {
+      padding: 1.75em;
+    }
+  }
+  @media (min-height: 37.5em) {
+    .modal__wrap {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -80%);
+    }
+  }
+  .modal__wrap label {
+    background: #FFD300;
+    border-radius: 50%;
+    color: #000000;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.5em;
+    line-height: 1.5;
+    position: absolute;
+    right: .5em;
+    top: .5em;
+    width: 1.5em;
+  }
+  .modal__wrap h2 {
+    color: #FFD300;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+  }
+  .modal__wrap p {
+    color: #FFD300;
+    text-align: justify;
+  }
+  .modal input:focus ~ label {
+    transform: scale(0.97);
+  }
+  
+
+  
+  .modal__overlay {
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: -100;
+  }
+  
+  input:checked ~ .modal__overlay {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 800;
+  }
+  /* The Close Button */
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
