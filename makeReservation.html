@@ -82,7 +82,8 @@
         <ul id="buyItems">
             <h4 class="empty">Your shopping cart is empty</h4>
         </ul>
-        <button class="btn checkout hidden">Check out</button>
+        <a href="viewMenu.html" class="btn checkout hidden">Menu</a>
+        <a href="checkout.html" class="btn checkout hidden">Check Out</a>
     </div>
 
       <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
@@ -157,6 +158,7 @@
                               <div class="modal__wrap" style="padding-top: 500px;" >
                                   <h3 style="color: white;">Review your booking</h3><br>
                                   <a href="makeReservation.html"><span class="close">&times;</span></a>
+                                        <form action="viewReservation.html" method="GET" id="form">
                                             <i class="bi bi-calendar-date" style="color: #fff;"></i>
                                             <input class="form-control" type="date" id="date-c" readonly>
 
@@ -169,7 +171,8 @@
                                             <i class="bi bi-clipboard" style="color: #fff;"></i>
                                             <textarea class="form-control" id="note-c" rows="3" readonly> </textarea>
                                             <BR>
-                                            <button type="button" onclick="message()" class="btn btn-primary" btn-lg btn-block">Confirm Booking</button>
+                                            <button type="submit" onclick="message()" class="btn btn-primary" btn-lg btn-block">Confirm Booking</button>
+                                        </form>
                                           
                               
                               </div>
@@ -227,6 +230,11 @@
       {
           alert("Your booking has been confirmed. Kindly check your email for the reservation confirmation.");
           window.location.href = "makeReservation.html";
+
+          if(typeof(localStorage) != "undefined"){
+        localStorage.name = document.getElementById("date-c").value;
+    }
+    document.getElementById("form").submit();
       }
       function close()
       {
@@ -260,6 +268,7 @@ function myFunction() {
   //note
   var note = document.getElementById("note").value;
   document.getElementById("note-c").value = note;
+  
 }
 
 

@@ -28,109 +28,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <style>@import url(https://fonts.googleapis.com/css?family=Lato:300,400,900);
-    @import url(https://fonts.googleapis.com/css?family=Audiowide);
-    
-    .modal {
-      display:contents;
-      padding: 1em;
-    }
-    .modal > label {
-      background: #FFD300;
-      border: 1px solid #f0c600;
-      border-radius: .2em;
-      color: #000000;
-      cursor: pointer;
-      display: inline-block;
-      font-weight: bold;
-      padding: 0.75em 1.5em;
-      text-shadow: 1px 1px 1px #fff;
-      transition: all 0.55s;
-    }
-    .modal > label:hover {
-      transform: scale(0.97);
-    }
-    .modal__overlay {
-      background: rgba(00,00,00,0.5);
-      bottom: 0;
-      left: 0;
-      position: fixed;
-      right: 0;
-      text-align: center;
-      text-shadow: none;
-      top: 0;
-      z-index: 600;
-    }
-    @media (min-width: 50em) {
-      .modal__wrap {
-        padding: 1.75em;
-      }
-    }
-    @media (min-height: 37.5em) {
-      .modal__wrap {
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        transform: translate(-50%, -80%);
-      }
-    }
-    .modal__wrap label {
-      background: #FFD300;
-      border-radius: 50%;
-      color: #000000;
-      cursor: pointer;
-      display: inline-block;
-      height: 1.5em;
-      line-height: 1.5;
-      position: absolute;
-      right: .5em;
-      top: .5em;
-      width: 1.5em;
-    }
-    .modal__wrap h2 {
-      color: #FFD300;
-      margin-bottom: 1em;
-      text-transform: uppercase;
-    }
-    .modal__wrap p {
-      color: #FFD300;
-      text-align: justify;
-    }
-    .modal input:focus ~ label {
-      transform: scale(0.97);
-    }
-    
-  
-    
-    .modal__overlay {
-      opacity: 0;
-      transform: scale(0.5);
-      transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      z-index: -100;
-    }
-    
-    input:checked ~ .modal__overlay {
-      opacity: 1;
-      transform: scale(1);
-      z-index: 800;
-    }
-    /* The Close Button */
-  /* The Close Button */
-  .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  </style>
 </head>
 
 <body>
@@ -182,7 +79,8 @@
         <ul id="buyItems">
             <h4 class="empty">Your shopping cart is empty</h4>
         </ul>
-        <button class="btn checkout hidden">Check out</button>
+        <a href="viewMenu.html" class="btn checkout hidden">Menu</a>
+        <a href="checkout.html" class="btn checkout hidden">Check Out</a>
     </div>
 
       <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
@@ -213,8 +111,8 @@
                       <input id="modal__trigger" type="checkbox" hidden/>
                       <label for="modal__trigger">Edit</label>
                       <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
-                          <div class="modal__wrap" style="padding-top: 500px;" >
-                              <h3 style="color: white;">Edit Profile</h3><br>
+                          <div class="modal__wrap" style="padding-top: 500px;color: white;background-color:rgba(148, 148, 148, 0.342);">
+                              <h3>Edit Profile</h3><br>
                               <a href="userProfile.html"><span class="close">&times;</span></a>
                                         Username
                                         <input class="form-control" type="text" value="username" id="username" readonly>
@@ -239,7 +137,7 @@
                       </div>
                     </div>
                   <!--End of Modal --> 
-                    <button type="button" name="" id="" class="btn btn-danger btn-lg" btn-lg btn-block">Account Termination</button>
+                    <button type="button" name="" id="" onclick=" terminate()"class="btn btn-danger btn-lg" btn-lg btn-block">Account Termination</button>
               </div>
                  
                 </div>
@@ -284,6 +182,22 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    function message()
+    {
+      alert("Your profile has been updated.");
+      window.location.href = "userProfile.html";
+    }
+    function terminate()
+    {
+      let confirmAction = confirm("Are you sure to execute this action?");
+        if (confirmAction) {
+          alert("Your request has been received. We hope to see you again.");
+        } else {
+          window.location.href = "userProfile.html";
+        }
+    }
+  </script>
 
 </body>
 

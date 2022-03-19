@@ -28,16 +28,136 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+
+.card {
+    z-index: 0;
+    background-color: #ECEFF1;
+    padding-bottom: 20px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    border-radius: 10px
+}
+
+.top {
+    padding-top: 40px;
+    padding-left: 13% !important;
+    padding-right: 13% !important
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: #455A64;
+    padding-left: 0px;
+    margin-top: 30px
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar .step0:before {
+    font-family: FontAwesome;
+    content: "\f10c";
+    color: #fff
+}
+
+#progressbar li:before {
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    background: #C5CAE9;
+    border-radius: 50%;
+    margin: auto;
+    padding: 0px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 12px;
+    background: #C5CAE9;
+    position: absolute;
+    left: 0;
+    top: 16px;
+    z-index: -1
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    left: -50%
+}
+
+#progressbar li:nth-child(2):after,
+#progressbar li:nth-child(3):after,
+#progressbar li:nth-child(4):after {
+    left: -50%
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    left: 50%
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #ffb81f
+}
+
+#progressbar li.active:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px
+}
+
+.icon-content {
+    padding-bottom: 20px
+}
+
+@media screen and (max-width: 992px) {
+    .icon-content {
+        width: 100%
+    }
+}</style>
+
+
 </head>
 
 <body>
-
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center fixed-top topbar-RED">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center h5" style="margin:auto;" >
         Welcome Back! Dear #username
     </div>
   </section>
+
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
@@ -79,63 +199,124 @@
             <h4 class="empty">Your shopping cart is empty</h4>
         </ul>
         <a href="viewMenu.html" class="btn checkout hidden">Menu</a>
-        <button class="btn checkout hidden">Check out</button>
+        <a href="checkout.html" class="btn checkout hidden">Check Out</a>
     </div>
 
       <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
 
     </div>
   </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero">
-    <div class="hero-container" >
-      <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel"style="background-color:white;">
-        <div class="carousel-inner" role="listbox" >
-          <div class="carousel-item active">
-            <div class="carousel-container"style="background-color:white;">
-              <div class="carousel-content" style="padding-right:10rem;">
-                <div style="background-color:gray; height:500px; width:500px ;">
-                  <img src="assets/img/profile.jpg" style="height:500px">
-                </div>
-              </div> 
-              <div class="carousel-content" style="padding-right:8rem; ">
-                    <h2 style="color: black;">username</h2>
-                    <P style="color: black;">2005-03-09</P>
-                    email: username@gmail.com<br>
-                    contact: 9672 8394<br>
-                    password: ***************<br><br>
-                    <button type="button" class="btn btn-outline-danger lg btn-lg">Edit Profile</button><br><br>
-                    <button type="button" name="" id="" class="btn btn-danger btn-lg" btn-lg btn-block">Account Termination</button>
-              </div>
-                 
-                </div>
-              </div>
+<div class="mt-5" style="padding-top: 80px;">
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active" >
+            <div class="carousel-container" style="background-color: white;">
+                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
+                        <h3>current</h3><br>
+                             <div class="input-group">
+                                <input type="text" class="form-control" value="" id="orderID" placeholder="Order #6152" readonly>
+                                <div class="input-group-append"> &NonBreakingSpace;
+                                  <!--Start of Modal -->
+                                <div class="modal">
+                                  <input id="modal__trigger" type="checkbox" hidden/>
+                                  <label for="modal__trigger" style="height: 50px;">Track Order</label>
+                                  <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+                                      <div class="modal__wrap" style="padding-top: 45%;width:80%">
+                                        <div class="container px-1 px-md-4 py-5 mx-auto">
+                                          <a class="btn-block btn-warning btn-lg" href="viewOrder.html"><span style="color:white;">&times; Close</span></a>
+                                        <div class="card">
+                                            <div class="row d-flex justify-content-between px-3 top">
+                                                <div class="d-flex">
+                                                    <h5>ORDER <span class="text-primary font-weight-bold">#6152</span></h5>
+                                                </div>
+                                                <div class="d-flex flex-column text-sm-right">
+                                                    <div class="mb-0">Expected Arrival <span>04:20pm</span></div>
+                                                </div>
+                                            </div> <!-- Add class 'active' to progress -->
+                                          
+                                              <div class="container">
+                                                <div class="row">
+                                                  <div class="col-sm">
+                                                    <ul id="progressbar" class="text-center">
+                                                        <li class="active step0"></li>
+                                                        <li class="active step0"></li>
+                                                        <li class="active step0"></li>
+                                                        <li class="step0"></li>
+                                                    </ul>
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                  <div class="col-sm "> <img class="icon" src="https://cdn-icons.flaticon.com/png/512/4357/premium/4357420.png?token=exp=1647722271~hmac=ca588635fb4dc129f64da9d808882be7">
+                                                          Order Placed
+                                                  </div>
+                                                  <div class="col-sm"> <img class="icon" src="https://cdn-icons.flaticon.com/png/512/1698/premium/1698691.png?token=exp=1647722339~hmac=6f40086619ac30c8bb11f06cfe5c2fc0">
+                                                          In Kitchen
+                                                  </div>
+                                                  <div class="col-sm"> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
+                                                          Out For Delivery
+                                                  </div>
+                                                  <div class="col-sm"> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2722/2722043.png">
+                                                          Delivered
+                                                  </div>
+                                                </div>
+                                              </div>   
+                                          </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div><!--end of modal-->
+                                </div>
+                            </div><br>
+                            <br>
+                          </div>
+                        </div>      
+                  </div>  
+                <br>    
             </div>
           </div>
-
-        </div>
+        </div>   
       </div>
-    </div>
-  </section><!-- End Hero -->
+      
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active" >
+            <div class="carousel-container" style="background-color: white;">
+                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(176, 177, 170);">
+                        <h3>history</h3><br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Order #2324" readonly>    
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Order #4221" readonly>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Order #5264" readonly>
+                            </div>
+                  </div>      
+              </div>  
+              <br>    
+            </div>
+          </div>
+         </div>
+
  <!-- ======= Footer ======= -->
  <footer id="footer">
-    <div class="container">
-      <h3>Sushi Kingdom</h3>
-      <p>Beyond The Boundaries of Taste.</p>
-      <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-      <div class="copyright">
-        &copy; Copyright <strong><span>Sushi Kingdom</span></strong>. All Rights Reserved
-      </div>
-      </div>
+  <div class="container">
+    <h3>Sushi Kingdom</h3>
+    <p>Beyond The Boundaries of Taste.</p>
+    <div class="social-links">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
     </div>
-  </footer><!-- End Footer -->
+    <div class="copyright">
+      &copy; Copyright <strong><span>Sushi Kingdom</span></strong>. All Rights Reserved
+    </div>
+    </div>
+  </div>
+</footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -150,6 +331,34 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+    function update()
+    {
+      let confirmAction = confirm("Are you sure to execute this action?");
+        if (confirmAction) {
+          alert("Your booking has been updated.");
+          window.location.href = "viewReservation.html";
+        } 
+        else 
+        {
+          window.location.href = "viewReservation.html";
+        }
+      
+    }
+    function terminate()
+    {
+      let confirmAction = confirm("Are you sure to execute this action?");
+        if (confirmAction) 
+        {
+          alert("Your request has been received. We hope to see you again.");
+        }
+        else 
+        {
+          window.location.href = "viewReservation.html";
+        }
+    }
+    
+  </script>
 
 </body>
 

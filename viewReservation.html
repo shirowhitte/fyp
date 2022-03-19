@@ -31,7 +31,6 @@
 </head>
 
 <body>
-
   <!-- ======= Top Bar ======= -->
   <section id="topbar" class="d-flex align-items-center fixed-top topbar-RED">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-center h5" style="margin:auto;" >
@@ -80,7 +79,7 @@
             <h4 class="empty">Your shopping cart is empty</h4>
         </ul>
         <a href="viewMenu.html" class="btn checkout hidden">Menu</a>
-        <button class="btn checkout hidden">Check out</button>
+        <a href="checkout.html" class="btn checkout hidden">Check Out</a>
     </div>
 
       <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
@@ -94,61 +93,145 @@
                 <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
                         <h3>upcoming</h3><br>
                              <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 1" readonly>
+                                <input type="text" class="form-control" value="" id="orderID" placeholder="ry05-20mar-2130-1-4p" readonly>
                                 <div class="input-group-append"> &NonBreakingSpace;
-                                <button class="btn btn-primary" type="button">make changes</button>
-                                <button class="btn btn-danger" type="button">delete reservation</button>
+                                <!--Start of Modal -->
+                                <div class="modal">
+                                  <input id="modal__trigger" type="checkbox" hidden/>
+                                  <label for="modal__trigger" style="height: 50px;">make changes</label>
+                                  <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+                                      <div class="modal__wrap" style="padding-top: 500px;color: white;background-color:rgba(148, 148, 148, 0.342);">
+                                          <h3>Edit Reservation</h3><br>
+                                          <a href="viewReservation.html"><span class="close">&times;</span></a><BR>
+                                          Booking ID
+                                          <input class="form-control" type="text" value="ry07-23mar-2030-4-8p" id="id" readonly>
+                                          Booking Date
+                                          <input class="form-control" type="date" id="date">
+                                          Capacity
+                                          <select class="form-control" id="capacity">
+                                            <option>1-4</option>
+                                            <option>4-8</option>
+                                            <option>>8</option>
+                                          </select>
+                                          Time
+                                          <select class="selectpicker form-control" id="time">
+                                            <option>1100</option>
+                                            <option>1130</option>
+                                            <option>1200</option>
+                                            <option>1230</option>
+                                            <option>1300</option>
+                                            <option>1330</option>
+                                            <option>1400</option>
+                                            <option>1430</option>
+                                            <option>1500</option>
+                                            <option>1530</option>
+                                            <option>1600</option>
+                                            <option>1630</option>
+                                            <option>1700</option>
+                                            <option>1730</option>
+                                            <option>1800</option>
+                                            <option>1830</option>
+                                            <option>1900</option>
+                                            <option>1930</option>
+                                            <option>2000</option>
+                                            <option>2030</option>
+                                            <option>2100</option>
+                                            <option>2130</option>
+                                          </select>
+                                        <br>
+                                        <button type="button" onclick="update()" class="btn btn-primary" btn-lg btn-block">Update</button>
+                                  </div>
+                                </div>
+                              </div><!--end of modal-->
+                                <button class="btn btn-danger"style="height: 50px;" onclick="terminate()" type="button">delete reservation</button>
                                 </div>
                             </div><br>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 2" readonly>
+                                <input type="text" class="form-control" placeholder="ry07-23mar-2030-4-8p" readonly>
                                 <div class="input-group-append"> &NonBreakingSpace;
-                                <button class="btn btn-primary" type="button">make changes</button>
-                                <button class="btn btn-danger" type="button">delete reservation</button>
+                                <!--Start of Modal -->
+                                <div class="modal">
+                                  <input id="modal__trigger" type="checkbox" hidden/>
+                                  <label for="modal__trigger" style="height: 50px;">make changes</label>
+                                  <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+                                      <div class="modal__wrap" style="padding-top: 500px;color: white;background-color:rgba(148, 148, 148, 0.342);">
+                                          <h3>Edit Reservation</h3><br>
+                                          <a href="viewReservation.html"><span class="close">&times;</span></a><BR>
+                                          Booking ID
+                                          <input class="form-control" type="text" value="ry07-23mar-2030-4-8p" id="id" readonly>
+                                          Booking Date
+                                          <input class="form-control" type="date" id="date">
+                                          Capacity
+                                          <select class="form-control" id="capacity">
+                                            <option>1-4</option>
+                                            <option>4-8</option>
+                                            <option>>8</option>
+                                          </select>
+                                          Time
+                                          <select class="selectpicker form-control" id="time">
+                                            <option>1100</option>
+                                            <option>1130</option>
+                                            <option>1200</option>
+                                            <option>1230</option>
+                                            <option>1300</option>
+                                            <option>1330</option>
+                                            <option>1400</option>
+                                            <option>1430</option>
+                                            <option>1500</option>
+                                            <option>1530</option>
+                                            <option>1600</option>
+                                            <option>1630</option>
+                                            <option>1700</option>
+                                            <option>1730</option>
+                                            <option>1800</option>
+                                            <option>1830</option>
+                                            <option>1900</option>
+                                            <option>1930</option>
+                                            <option>2000</option>
+                                            <option>2030</option>
+                                            <option>2100</option>
+                                            <option>2130</option>
+                                          </select>
+                                        <br>
+                                        <button type="button" onclick="update()" class="btn btn-primary" btn-lg btn-block">Update</button>
+                                  </div>
+                                </div>
+                              </div><!--end of modal-->
+                                <button class="btn btn-danger"style="height: 50px;" onclick="terminate()" type="button">delete reservation</button>
                                 </div>
                             </div><br>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 2" readonly>
-                                <div class="input-group-append"> &NonBreakingSpace;
-                                <button class="btn btn-primary" type="button">make changes</button>
-                                <button class="btn btn-danger" type="button">delete reservation</button>
-                                </div>
-                            </div>
+                          </div>
                         </div>      
                   </div>  
                 <br>    
             </div>
           </div>
-        </div>
-
-          
-        </div>
-
-
-
-
+        </div>   
+      </div>
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active" >
             <div class="carousel-container" style="background-color: white;">
-                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
+                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(176, 177, 170);">
                         <h3>history</h3><br>
-                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 1" readonly>
-                            </div><br>
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 2" readonly>
-                            </div><br>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="reservation 2" readonly>
+                                <input type="text" class="form-control" placeholder="ry01-02mar-2030-4-8p" readonly>
+                               
+                                
                             </div>
-                        </div>      
-                  </div>  
-                <br>    
+                            <br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="rn03-05mar-2030->8p" readonly>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="ry05-10mar-2030-1-4p" readonly>
+                            </div>
+                  </div>      
+              </div>  
+              <br>    
             </div>
           </div>
-
-          
-        </div>
+         </div>
 
  <!-- ======= Footer ======= -->
  <footer id="footer">
@@ -183,10 +266,32 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
   <script>
-      function message()
-      {
-          alert("Your booking has been confirmed.");
-      }
+    function update()
+    {
+      let confirmAction = confirm("Are you sure to execute this action?");
+        if (confirmAction) {
+          alert("Your booking has been updated.");
+          window.location.href = "viewReservation.html";
+        } 
+        else 
+        {
+          window.location.href = "viewReservation.html";
+        }
+      
+    }
+    function terminate()
+    {
+      let confirmAction = confirm("Are you sure to execute this action?");
+        if (confirmAction) 
+        {
+          alert("Your request has been received. We hope to see you again.");
+        }
+        else 
+        {
+          window.location.href = "viewReservation.html";
+        }
+    }
+    
   </script>
 
 </body>
