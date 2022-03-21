@@ -28,6 +28,93 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <style>img{
+      width:200px; height:200px;}
+      ul {
+    list-style-type: none;
+
+    
+}
+/* MAIN */
+/* =============================================== */
+.rad-label {
+  display: flex;
+  align-items: center;
+
+  border-radius: 100px;
+  padding: 14px 16px;
+  margin: 10px 0;
+
+  cursor: pointer;
+  transition: .3s;
+}
+
+.rad-label:hover,
+.rad-label:focus-within {
+  background: hsla(0, 0%, 80%, .14);
+}
+
+.rad-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.rad-design {
+  width: 22px;
+  height: 22px;
+  border-radius: 100px;
+
+  background: linear-gradient(to right bottom, hsl(44, 97%, 62%), hsl(55, 24%, 80%));
+  position: relative;
+}
+
+.rad-design::before {
+  content: '';
+
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+
+  background: hsl(0, 0%, 90%);
+  transform: scale(1.1);
+  transition: .3s;
+}
+
+.rad-input:checked+.rad-design::before {
+  transform: scale(0);
+}
+
+.rad-text {
+  color: hsl(0, 0%, 75%);
+  margin-left: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 900;
+
+  transition: .3s;
+}
+
+.rad-input:checked~.rad-text {
+  color: hsl(0, 0%, 15%);
+}
+
+
+/* ABS */
+/* ====================================================== */
+.abs-site-link {
+  position: fixed;
+  bottom: 40px;
+  left: 20px;
+  color: hsla(0, 0%, 0%, .5);
+  font-size: 16px;
+}</style>
 </head>
 
 <body>
@@ -75,7 +162,8 @@
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active" >
             <div class="carousel-container" style="background-color: white;">
-                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(176, 177, 170);">
+                <div class="row">
+                <div class="container-md p-5 col-5 justify-content-center" style="background-color:rgb(224, 203, 146);">
                         <h3>View Order Summary</h3><br>
                            
                             
@@ -86,15 +174,48 @@
                               <ul id="buyItems">
                                   <h4 class="empty">Your shopping cart is empty</h4>
                               </ul>
-                              <a href="viewMenu.html" class="btn checkout hidden">Menu</a>
-                              <a href="checkout.html" class="btn checkout hidden">Check Out</a>
                           </div>
-                  </div>      
+                          <div class="container-md w-30 p-5 col-7 " style="background-color:rgb(240, 238, 229);">
+                            <div class="container p-3 my-3 border">
+                                <H3>Choose Food Ordering Type</H3>
+                                <div>
+
+                                    <label class="rad-label">
+                                      <input type="radio" class="rad-input" name="ordertype"  id="delivernow" value="delivernow">
+                                      <div class="rad-design"></div>
+                                      <div class="rad-text">Delivery Now</div>
+                                    </label>
+                                  
+                                    <label class="rad-label">
+                                      <input type="radio" class="rad-input" name="ordertype" id="deliverlater" value="deliverlater">
+                                      <div class="rad-design"></div>
+                                      <div class="rad-text">Delivery Later</div>
+                                    </label>
+                                  
+                                    <label class="rad-label">
+                                      <input type="radio" class="rad-input" name="ordertype" value="preorder" id="preorder">
+                                      <div class="rad-design"></div>
+                                      <div class="rad-text">Reservation Pre-Order</div>
+                                    </label>
+
+                                     <input type="text" name="deliver" id="deliver">
+                                  
+                        
+                                  
+                                  </div>
+                                
+                                
+                            </div>
+                            </div>
+                            </div>
+                  </div>   
+                     
                 </div>  
               <br>    
             </div>
+            
           </div>
-         </div>
+
 
  <!-- ======= Footer ======= -->
  <footer id="footer">
@@ -128,6 +249,14 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+if(document.getElementById('delivernow').checked||document.getElementById('deliverlater').checked) {
+   
+}else if(document.getElementById('preorder').checked) {
+  //Female radio button is checked
+}
+
+  </script>
 </body>
 
 </html>
