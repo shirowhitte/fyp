@@ -21,6 +21,7 @@ const updateShoppingCartHTML = function () {  // 3
 		let result = productsInCart.map(product => {
 			return `
 				<li class="buyItem">
+					<img src="${product.image}" style="width:150px;height:150px;">
 					<div>
 						<h5>${product.name}</h5>
 						<h6>$${product.price}</h6>
