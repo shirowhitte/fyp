@@ -315,30 +315,31 @@ tfoot {
                 <div class="row">
                 <div class="container-md p-5 col-5 justify-content-center" style="background-color:rgb(224, 203, 146);">
                         <h3>View Order Summary</h3><br>
-                            <button id="menuButton" hidden></button>
-                              <div class="overlay"></div>
-                              <ul id="buyItems">
-                                  <h4 class="empty">Your shopping cart is empty</h4>
-                              </ul>
-                          </div>
+
+                        <button id="menuButton" hidden></button>
+                        <ul id="buyItems">
+                            <h4 class="empty">Your shopping cart is empty</h4>
+                        </ul>
+                        <a href="checkout.html" style="display:none;" class="btn checkout hidden">Check Out</a>
+                        </div>
                           <div class="container-md w-30 p-5 col-7 " style="background-color:rgb(240, 238, 229);">
                             <div class="container p-3 my-3 border">
                                 <H3>Choose Food Ordering Type</H3>
                                 <div>
-                                    <label class="rad-label">
-                                      <input type="radio" class="rad-input" name="ordertype"  value="delivernow">
+                                   
+                                      <input type="radio"  name="ordertype" id="delivernow"  value="delivernow" onclick="general()">
                                       <label for="delivernow" class="rad-text">Delivery Now</label><br>
-                                    </label>
+                                    <br>
 
-                                    <label class="rad-label">
-                                        <input type="radio" class="rad-input" name="ordertype"  value="deliverlater">
+                                    
+                                        <input type="radio" name="ordertype" id="deliverlater" value="deliverlater" onclick="general()">
                                         <label for="deliverlater" class="rad-text">Delivery Later</label><br>
-                                      </label>
+                                        <br>
 
-                                      <label class="rad-label">
-                                        <input type="radio" class="rad-input" name="ordertype"  value="preorder">
+                                  
+                                        <input type="radio" name="ordertype"  id="preorder" value="preorder" onclick="general()">
                                         <label for="preorder" class="rad-text">Reservation Pre-Order</label><br>
-                                      </label>
+                                        <br>
                                   </div>
 
                                   <div class="deliverlater box" id="later">
@@ -346,7 +347,10 @@ tfoot {
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Address</span>
                                     </div>
-                                    <input type="text" placeholder="Where to deliver the food?" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="address" id="address">
+                                  
+                                        <input type="text" placeholder="Where to deliver the food?"  class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="address" id="address" required><br>
+                                        <button class="btn-success btn-sm btn-block"type="submit" id="check" onclick="check()">Check coverage</button>
+                                    
                                   </div><br>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
@@ -381,17 +385,24 @@ tfoot {
                                   <p><I>A delivery charge of $10 will be imposed.</I></p>
                                 </div>
 
-
+                                
                                   <div class="delivernow box" id="now">
                                     <div class="input-group input-group-sm">
                                         <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroup-sizing-sm">Address</span>
                                         </div>
-                                        <input type="text" placeholder="Where to deliver the food?"  class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="address" id="address">
-                                    </div>
+                              
+                                        <input type="text" placeholder="Where to deliver the food?"  class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="address" id="address" required><br>
+                                        <button class="btn-success btn-sm btn-block"type="submit" id="check" onclick="check()">Check coverage</button>
+                                        </div>
+                                        
+                                     
                                     <BR>
                                         <p><I>A delivery charge of $10 will be imposed.</I></p>
+                                        
                                   </div>
+                                  
+                                  
 
                             
 
@@ -414,7 +425,6 @@ tfoot {
                                               <h1>Checkout</h1>
                                             </header>
                                           
-                                            <form action="https://httpbin.org/post" class="form" method="POST">
                                               <div>
                                               <fieldset>
                                                 <legend>Payment Method</legend>
@@ -452,7 +462,7 @@ tfoot {
                                               <div class="input-group">
                                                 <input type="text" class="form-control" placeholder="Voucher" aria-label="" aria-describedby="basic-addon1">
                                                 <div class="input-group-append">
-                                                  <button class="btn btn-success" type="button">Apply</button>
+                                                  <button class="btn btn-success" id="voucher" onclick="discount()" type="button">Apply</button>
                                                 </div>
                                               </div>
                                           
@@ -461,38 +471,37 @@ tfoot {
                                           
                                                 <table>
                                                   <tbody>
-                                                      <div id="shippingfee">
-                                                        <tr>
+                                                     
+                                                        <tr id="shippingfee">
                                                         <td>Shipping fee</td>
                                                         <td align="right">$10</td>
                                                         </tr>
-                                                      </div>
+                                                   
                                                     <tr>
                                                       <td>Discount</td>
-                                                      <td align="right"></td>
+                                                      <td align="right" id="discount">$0</td>
                                                     </tr>
                                                     <tr>
                                                       <td>Price Total</td>
-                                                      <td align="right">
-                                                       <p id="sum-prices"></p>
+                                                      <td align="right" id="sum-prices">
                                                       </td>
                                                     </tr>
                                                   </tbody>
                                                   <tfoot>
                                                     <tr>
                                                       <td>Total</td>
-                                                      <td align="right">$88.36</td>
+                                                      <td align="right" id="total"></td>
                                                     </tr>
                                                   </tfoot>
                                                 </table>
                                               </div>
                                           
                                               <div>
-                                                <button class="button button--full" type="submit"><svg class="icon">
+                                                <button onclick="pay()" class="button button--full"><svg class="icon">
                                                     <use xlink:href="#icon-shopping-bag" />
                                                   </svg>Pay Now</button>
                                               </div>
-                                            </form>
+                                            
                                           </div>
                                           
                                           <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
@@ -622,10 +631,13 @@ window.onload=function(){
   document.getElementById("later").style.display='none';
   document.getElementById("pre").style.display='none';
 
+
+  
 }
 
+
       $(document).ready(function(){
-    $('input[type="radio"]').click(function(){
+    $('input[name="ordertype"]').click(function(){
         var inputValue = $(this).attr("value");
         var targetBox = $("." + inputValue);
         $(".box").not(targetBox).hide();
@@ -634,8 +646,90 @@ window.onload=function(){
 });
 
 
+var total;
 
-  </script>
+
+function discount()
+{
+    alert("Voucher exists!");
+    var dis = "-$10";
+    var vou = Number(dis.replace(/[^0-9.-]+/g,""));
+    document.getElementById("discount").innerHTML = dis;
+
+    var preorder = document.getElementById("preorder").checked;
+    var delivernow = document.getElementById("delivernow").checked;
+    var deliverlater = document.getElementById("deliverlater").checked;
+
+    var sum = document.getElementById("sum-prices").innerHTML;
+    var price = Number(sum.replace(/[^0-9.-]+/g,""));
+    var total = price + vou;
+
+    if(preorder)
+    {
+        document.getElementById("discount").innerHTML = dis;
+        document.getElementById('shippingfee').style.display='none';
+        var totalprice = "$" + total;
+        document.getElementById('total').innerHTML = totalprice;
+    }
+    else if(delivernow || deliverlater)
+    {
+        document.getElementById("discount").innerHTML = dis;
+        document.getElementById('shippingfee').style.display='contents';
+ 
+        total = total + 10 ;
+        var totalprice = "$" + total;
+        document.getElementById('total').innerHTML = totalprice;
+
+        
+    }
+
+}
+
+function general()
+{
+    var preorder = document.getElementById("preorder").checked;
+    var delivernow = document.getElementById("delivernow").checked;
+    var deliverlater = document.getElementById("deliverlater").checked;
+
+    var sum = document.getElementById("sum-prices").innerHTML;
+    var price = Number(sum.replace(/[^0-9.-]+/g,""));
+
+    if(preorder)
+    {
+        document.getElementById("discount").innerHTML = "$0";
+        document.getElementById('shippingfee').style.display='none';
+        document.getElementById('total').innerHTML = sum;  
+        
+    }
+    else if(delivernow || deliverlater)
+    {
+        document.getElementById("discount").innerHTML = "$0";
+        document.getElementById('shippingfee').style.display='contents';   
+        var total = price + 10 ;
+        var totalprice = "$" + total;
+        document.getElementById('total').innerHTML = totalprice;  
+    }  
+}
+
+function check()
+{
+    alert("Your address is within delivery area!");
+} 
+
+function pay()
+{
+    alert("Your payment has been received. Kindly check your email for order confirmation.");
+    alert("Your will be redirected to view order in next second");
+    window.setTimeout(function(){
+
+// Move to a new location or you can do something else
+window.location.href = "viewOrder.html";
+
+}, 1000);
+
+
+}
+</script>
 </body>
 
 </html>
