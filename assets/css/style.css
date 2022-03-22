@@ -1418,7 +1418,8 @@ section {
 }
 
 .producstOnCart img {
-  width: 90px;
+  width: 40px;
+  height: 40px;
 }
 
 .producstOnCart .top {
@@ -1441,7 +1442,7 @@ section {
 }
 
 .overlay {
-  overflow: hidden;
+  overflow: visible;
   display: inline-block;
   content: "";
   position: fixed;
@@ -1455,7 +1456,7 @@ section {
 
 .stopScrolling {
   height: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .buyItem h6 {
