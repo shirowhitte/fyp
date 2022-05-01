@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>My Order</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,600,600i,700,700i|Satisfy|Comic+Neue:300,300i,400,400i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
+  integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous"/>
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+
+.card {
+    z-index: 0;
+    background-color: #ECEFF1;
+    padding-bottom: 20px;
+    margin-top: 90px;
+    margin-bottom: 90px;
+    border-radius: 10px
+}
+
+.top {
+    padding-top: 40px;
+    padding-left: 13% !important;
+    padding-right: 13% !important
+}
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: #455A64;
+    padding-left: 0px;
+    margin-top: 30px
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 13px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar .step0:before {
+    font-family: FontAwesome;
+    content: "\f10c";
+    color: #fff
+}
+
+#progressbar li:before {
+    width: 40px;
+    height: 40px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    background: #C5CAE9;
+    border-radius: 50%;
+    margin: auto;
+    padding: 0px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 12px;
+    background: #C5CAE9;
+    position: absolute;
+    left: 0;
+    top: 16px;
+    z-index: -1
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    left: -50%
+}
+
+#progressbar li:nth-child(2):after,
+#progressbar li:nth-child(3):after,
+#progressbar li:nth-child(4):after {
+    left: -50%
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    left: 50%
+}
+
+#progressbar li:last-child:after {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px
+}
+
+#progressbar li:first-child:after {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #ffb81f
+}
+
+#progressbar li.active:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+.icon {
+    width: 60px;
+    height: 60px;
+    margin-right: 15px
+}
+
+.icon-content {
+    padding-bottom: 20px
+}
+
+@media screen and (max-width: 992px) {
+    .icon-content {
+        width: 100%
+    }
+}</style>
+
+
+</head>
+
+<body>
+  <!-- ======= Top Bar ======= -->
+  <section id="topbar" class="d-flex align-items-center fixed-top topbar-RED">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-center h5" style="margin:auto;" >
+        Welcome Back! Dear #staffname
+    </div>
+  </section>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <div class="logo me-auto">
+        <h1><a href="adminDashboard.html">Sushi Kingdom</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto" href="adminProfile.html">My Profile</a></li>
+          <li><a class="nav-link scrollto" href="adminReservation.html">My Reservation</a></li>
+          <li><a class="nav-link scrollto active" href="adminOrder.html">My Order</a></li>
+          <li>   <!--Here is top one and in this part I put logo, my account part, and the shopping cart-->
+ <!--Shopping cart-->
+                    <div class="shopping-cart nav-link scrollto" style="color: white;">
+                        <div class="sum-prices">
+                            <!--Shopping cart logo-->
+                            <i class="fas fa-shopping-cart shoppingCartButton"></i>
+                            <!--The total prices of products in the shopping cart -->
+                            <h6 id="sum-prices"></h6>
+                            
+                        </div>
+                    </div>
+        </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+      <button id="menuButton" hidden></button>
+      <div class="producstOnCart hide" style="padding-top: 20px;">
+        <div class="overlay"></div>
+        <div class="top">
+            <button id="closeButton">
+                <i class="fas fa-times-circle"></i>
+            </button>
+            <h3 style="padding-left: 10px; background-color: black;">Cart</h3>
+        </div>
+        <ul id="buyItems">
+            <h4 class="empty">Your shopping cart is empty</h4>
+        </ul>
+        <a href="viewMenu.html" class="btn checkout hidden">Menu</a>
+        <a href="checkout.html" class="btn checkout hidden">Check Out</a>
+    </div>
+
+      <a href="index.html" class="book-a-table-btn scrollto">Logout</a>
+
+    </div>
+  </header><!-- End Header -->
+<div class="mt-5" style="padding-top: 80px;">
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active" >
+            <div class="carousel-container" style="background-color: white;">
+                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
+                        <h3>Current</h3><br>
+                             <div class="input-group">
+                                <input type="text" class="form-control" value="" id="orderID" placeholder="Order #6152" readonly>
+                                <div class="input-group-append"> &NonBreakingSpace;
+                                  <!--Start of Modal -->
+                                <div class="modal">
+                                  <input id="modal__trigger" type="checkbox" hidden/>
+                                  <label for="modal__trigger" style="height: 50px;">Track Order</label>
+                                  <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+                                      <div class="modal__wrap" style="padding-top: 45%;width:80%">
+                                        <div class="container px-1 px-md-4 py-5 mx-auto">
+                                          <a class="btn-block btn-warning btn-lg" href="adminOrder.html"><span style="color:white;">&times; Close</span></a>
+                                        <div class="card">
+                                            <div class="row d-flex justify-content-between px-3 top">
+                                                <div class="d-flex">
+                                                    <h5>ORDER <span class="text-primary font-weight-bold">#6152</span></h5>
+                                                </div>
+                                                <div class="d-flex flex-column text-sm-right">
+                                                    <div class="mb-0">Expected Arrival <span>04:20pm</span></div>
+                                                </div>
+                                            </div> <!-- Add class 'active' to progress -->
+                                          
+                                              <div class="container">
+                                                <div class="row">
+                                                  <div class="col-sm">
+                                                    <ul id="progressbar" class="text-center">
+                                                        <li class="active step0"></li>
+                                                        <li class="active step0"></li>
+                                                        <li class="active step0"></li>
+                                                        <li class="step0"></li>
+                                                    </ul>
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                  <div class="col-sm "> <img class="icon" src="https://img.icons8.com/external-itim2101-flat-itim2101/344/external-order-shopping-and-ecommerce-itim2101-flat-itim2101.png">
+                                                          Order Placed
+                                                  </div>
+                                                  <div class="col-sm"> <img class="icon" src="https://cdn-icons.flaticon.com/png/512/1698/premium/1698691.png?token=exp=1647722339~hmac=6f40086619ac30c8bb11f06cfe5c2fc0">
+                                                          In Kitchen
+                                                  </div>
+                                                  <div class="col-sm"> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
+                                                          Out For Delivery
+                                                  </div>
+                                                  <div class="col-sm"> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2722/2722043.png">
+                                                          Delivered
+                                                  </div>
+                                                </div>
+                                              </div>   
+                                          </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div><!--end of modal-->
+                                </div>
+                            </div><br>
+                            <br>
+                          </div>
+                        </div>      
+                  </div>  
+                  <br> <br> <br>
+                  <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(243, 243, 243);">
+                    <h3>Current</h3><br>
+                         <div class="input-group">
+                            <input type="text" class="form-control" value="" id="orderID" placeholder="Order #6152" readonly>
+                            <div class="input-group-append"> &NonBreakingSpace;
+                              <!--Start of Modal -->
+                            <div class="modal">
+                              <input id="modal__trigger" type="checkbox" hidden/>
+                              <label for="modal__trigger" style="height: 50px;">Track Order</label>
+                              <div class="modal__overlay" role="dialog" aria-labelledby="modal__title" aria-describedby="modal_desc">
+                                  <div class="modal__wrap" style="padding-top: 45%;width:80%">
+                                    <div class="container px-1 px-md-4 py-5 mx-auto">
+                                      <a class="btn-block btn-warning btn-lg" href="adminOrder.html"><span style="color:white;">&times; Close</span></a>
+                                    <div class="card">
+                                        <div class="row d-flex justify-content-between px-3 top">
+                                            <div class="d-flex">
+                                                <h5>ORDER <span class="text-primary font-weight-bold">#6153</span></h5>
+                                            </div>
+                                            <div class="d-flex flex-column text-sm-right">
+                                                <div class="mb-0">Expected Arrival <span>04:35pm</span></div>
+                                            </div>
+                                        </div> <!-- Add class 'active' to progress -->
+                                      
+                                          <div class="container">
+                                            <div class="row">
+                                              <div class="col-sm">
+                                                <ul id="progressbar" class="text-center">
+                                                    <li class="active step0"></li>
+                                                    <li class="active step0"></li>
+                                                    <li class="step0"></li>
+                                                    <li class="step0"></li>
+                                                </ul>
+                                            </div>
+                                            </div>
+                                            <div class="row">
+                                              <div class="col-sm "> <img class="icon" src="https://img.icons8.com/external-itim2101-flat-itim2101/344/external-order-shopping-and-ecommerce-itim2101-flat-itim2101.png">
+                                                      Order Placed
+                                              </div>
+                                              <div class="col-sm"> <img class="icon" src="https://cdn-icons.flaticon.com/png/512/1698/premium/1698691.png?token=exp=1647722339~hmac=6f40086619ac30c8bb11f06cfe5c2fc0">
+                                                      In Kitchen
+                                              </div>
+                                              <div class="col-sm"> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png">
+                                                      Out For Delivery
+                                              </div>
+                                              <div class="col-sm"> <img class="icon" src="https://cdn-icons-png.flaticon.com/512/2722/2722043.png">
+                                                      Delivered
+                                              </div>
+                                            </div>
+                                          </div>   
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div><!--end of modal-->
+                            </div>
+                        </div><br>
+                        <br>
+                      </div>
+                    </div>      
+              </div>
+
+              
+                <br>    
+            </div>
+          </div>
+        </div>   
+      </div>
+      
+        <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active" >
+            <div class="carousel-container" style="background-color: white;">
+                <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(176, 177, 170);">
+                        <h3>History</h3><br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Order #2324" readonly>    
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Order #4221" readonly>
+                            </div>
+                            <br>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Order #5264" readonly>
+                            </div>
+                  </div>      
+              </div>  
+              <br>    
+            </div>
+          </div>
+         </div>
+
+        <!--
+         <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active" >
+              <div class="carousel-container" style="background-color: white;">
+                  <div class="container-md mt-5 pt-5 w-30 p-5 " style="background-color:rgb(176, 177, 170);">
+                          <h3>New Orders</h3><br>
+                              <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Order #2324" readonly>    
+                              </div>
+                              <br>
+                              <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Order #4221" readonly>
+                              </div>
+                              <br>
+                              <div class="input-group">
+                                  <input type="text" class="form-control" placeholder="Order #5264" readonly>
+                              </div>
+                    </div>      
+                </div>  
+                <br>    
+              </div>
+            </div>
+           </div>-->
+
+ <!-- ======= Footer ======= -->
+ <footer id="footer">
+  <div class="container">
+    <h3>Sushi Kingdom</h3>
+    <p>Beyond The Boundaries of Taste.</p>
+    <div class="social-links">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+    </div>
+    <div class="copyright">
+      &copy; Copyright <strong><span>Sushi Kingdom</span></strong>. All Rights Reserved
+    </div>
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/js/JS/script.js"></script>
+  <script src="assets/js/shopping-cart.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    function update()
+    {
+      let confirmAction = confirm("Are you sure to execute this action?");
+        if (confirmAction) {
+          alert("Your booking has been updated.");
+          window.location.href = "adminReservation.html";
+        } 
+        else 
+        {
+          window.location.href = "adminReservation.html";
+        }
+      
+    }
+    function terminate()
+    {
+      let confirmAction = confirm("Are you sure to execute this action?");
+        if (confirmAction) 
+        {
+          alert("Your request has been received. We hope to see you again.");
+        }
+        else 
+        {
+          window.location.href = "adminReservation.html";
+        }
+    }
+    
+  </script>
+
+</body>
+
+</html>
